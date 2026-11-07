@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ Accordion</title>
+  <meta name="generator" content="Vanilla JS">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Vanilla JS</p>
+    <h1>FAQ Accordion</h1>
+    <p class="lede">Expand one answer at a time.</p>
+    <div id="faq"></div>
+  </main>
+  
+<script>
+
+const items=[{q:"What is this?",a:"A static FAQ accordion."},{q:"Does it need a server?",a:"No, open the HTML file."},{q:"Can I add items?",a:"Yes, edit the items array in app.js."}];
+const root=document.getElementById("faq");
+items.forEach((item)=>{ const details=document.createElement("details"); const sum=document.createElement("summary"); sum.textContent=item.q; const p=document.createElement("p"); p.textContent=item.a; details.appendChild(sum); details.appendChild(p);
+  details.addEventListener("toggle",()=>{ if(details.open){ [...root.querySelectorAll("details")].forEach(d=>{ if(d!==details) d.open=false; }); } }); root.appendChild(details); });
+
+</script>
+</body>
+</html>

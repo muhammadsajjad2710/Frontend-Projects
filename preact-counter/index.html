@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preact Counter</title>
+  <meta name="generator" content="Preact">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Preact</p>
+    <h1>Preact Counter</h1>
+    <p class="lede">A counter component with Preact and htm.</p>
+    <div id="root"></div>
+  </main>
+  <script src="https://unpkg.com/preact@10.24.3/dist/preact.min.js"></script><script src="https://unpkg.com/htm@3.1.1/dist/htm.js"></script>
+<script>
+
+const {h, render} = preact; const html = htm.bind(h);
+function Counter(){
+  const state = { n: 0 };
+  function view(){
+    return html`<div class="row"><button onClick=${()=>{state.n-=1; paint();}}>-</button><p>${state.n}</p><button onClick=${()=>{state.n+=1; paint();}}>+</button></div>`;
+  }
+  function paint(){ render(view(), document.getElementById("root")); }
+  paint();
+}
+Counter();
+
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modal Dialog</title>
+  <meta name="generator" content="Vanilla JS">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Vanilla JS</p>
+    <h1>Modal Dialog</h1>
+    <p class="lede">Open and close a dialog with the native dialog element.</p>
+    <button id="open">Open modal</button><dialog id="dlg"><p>This is a modal dialog.</p><button id="close">Close</button></dialog>
+  </main>
+  
+<script>
+
+const dlg=document.getElementById("dlg");
+document.getElementById("open").addEventListener("click",()=>dlg.showModal());
+document.getElementById("close").addEventListener("click",()=>dlg.close());
+
+</script>
+</body>
+</html>

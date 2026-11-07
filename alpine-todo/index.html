@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alpine Todo</title>
+  <meta name="generator" content="Alpine.js">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Alpine.js</p>
+    <h1>Alpine Todo</h1>
+    <p class="lede">A todo list with Alpine.js directives.</p>
+    <div x-data="{ title:'', tasks:[] }"><form class="row" @submit.prevent="title.trim() && tasks.push({title, done:false}) || (title='')"><input x-model="title" placeholder="Task"><button>Add</button></form><ul class="list"><template x-for="t in tasks"><li><span x-text="t.done ? t.title+' (done)' : t.title"></span><button class="secondary" type="button" @click="t.done=!t.done">Toggle</button></li></template></ul></div>
+  </main>
+  <script defer src="https://unpkg.com/alpinejs@3.14.3/dist/cdn.min.js"></script>
+</body>
+</html>

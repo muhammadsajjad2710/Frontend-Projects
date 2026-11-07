@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Countdown Timer</title>
+  <meta name="generator" content="Vanilla JS">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Vanilla JS</p>
+    <h1>Countdown Timer</h1>
+    <p class="lede">Count down from a number of seconds.</p>
+    <form id="form" class="row"><input id="secs" type="number" min="1" value="10"><button type="submit">Start</button></form><p id="face" class="lede">10</p>
+  </main>
+  
+<script>
+
+let t=null;
+document.getElementById("form").addEventListener("submit",(e)=>{ e.preventDefault(); let n=Number(document.getElementById("secs").value); const face=document.getElementById("face"); face.textContent=String(n); clearInterval(t);
+  t=setInterval(()=>{ n-=1; face.textContent=String(Math.max(n,0)); if(n<=0) clearInterval(t); },1000); });
+
+</script>
+</body>
+</html>

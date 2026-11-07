@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lit Counter</title>
+  <meta name="generator" content="Lit">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Lit</p>
+    <h1>Lit Counter</h1>
+    <p class="lede">A web component counter built with Lit.</p>
+    <count-box></count-box>
+  </main>
+  <script type="module">
+import {LitElement, html, css} from "https://cdn.jsdelivr.net/gh/lit/dist@3/core/lit-core.min.js";
+class CountBox extends LitElement {
+  static properties = { n: {type: Number} };
+  static styles = css`button,p{font:inherit} .row{display:flex;gap:8px;align-items:center}`;
+  constructor(){ super(); this.n=0; }
+  render(){ return html`<div class="row"><button @click=${()=>this.n--}>-</button><p>${this.n}</p><button @click=${()=>this.n++}>+</button></div>`; }
+}
+customElements.define("count-box", CountBox);
+</script>
+</body>
+</html>

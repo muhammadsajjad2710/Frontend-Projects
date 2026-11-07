@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alpine Tabs</title>
+  <meta name="generator" content="Alpine.js">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Alpine.js</p>
+    <h1>Alpine Tabs</h1>
+    <p class="lede">Tabs with Alpine x-show.</p>
+    <div x-data="{ tab:'a' }"><div class="row"><button @click="tab='a'" :class="tab==='a'?'':'secondary'">One</button><button @click="tab='b'" :class="tab==='b'?'':'secondary'">Two</button></div><p class="card" x-show="tab==='a'">First panel.</p><p class="card" x-show="tab==='b'">Second panel.</p></div>
+  </main>
+  <script defer src="https://unpkg.com/alpinejs@3.14.3/dist/cdn.min.js"></script>
+</body>
+</html>

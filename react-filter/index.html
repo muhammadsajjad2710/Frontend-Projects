@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>React Filter List</title>
+  <meta name="generator" content="React">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">React</p>
+    <h1>React Filter List</h1>
+    <p class="lede">Filter a list of frameworks as you type.</p>
+    <div id="root"></div>
+  </main>
+  
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+const all=["React","Vue","Svelte","Angular","Solid","Qwik","Lit","Alpine"];
+function App(){ const [q,setQ]=React.useState(""); const items=all.filter(n=>n.toLowerCase().includes(q.toLowerCase()));
+  return (<div><input value={q} onChange={e=>setQ(e.target.value)} placeholder="Filter"/><ul className="list">{items.map(n=><li key={n}>{n}</li>)}</ul></div>); }
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+</script>
+</body>
+</html>

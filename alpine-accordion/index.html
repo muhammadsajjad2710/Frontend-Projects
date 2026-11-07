@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alpine Accordion</title>
+  <meta name="generator" content="Alpine.js">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Alpine.js</p>
+    <h1>Alpine Accordion</h1>
+    <p class="lede">Open one section at a time with Alpine.</p>
+    <div x-data="{ open:1 }"><button @click="open=1">What is Alpine?</button><p class="card" x-show="open===1">A lightweight declarative library.</p><button @click="open=2">When to use it?</button><p class="card" x-show="open===2">Small widgets without a build step.</p></div>
+  </main>
+  <script defer src="https://unpkg.com/alpinejs@3.14.3/dist/cdn.min.js"></script>
+</body>
+</html>

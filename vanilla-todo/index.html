@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Todo List</title>
+  <meta name="generator" content="Vanilla JS">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Vanilla JS</p>
+    <h1>Todo List</h1>
+    <p class="lede">Add and complete tasks without a framework.</p>
+    <form id="form" class="row"><input id="title" required placeholder="Task"><button type="submit">Add</button></form><ul id="list" class="list"></ul>
+  </main>
+  
+<script>
+
+const list=document.getElementById("list"); const tasks=[];
+function render(){ while(list.firstChild) list.removeChild(list.firstChild);
+  tasks.forEach((t,i)=>{ const li=document.createElement("li"); li.appendChild(document.createTextNode(t.done?t.title+" (done)":t.title));
+    const b=document.createElement("button"); b.textContent="Toggle"; b.className="secondary";
+    b.addEventListener("click",()=>{t.done=!t.done; render();}); li.appendChild(b); list.appendChild(li); }); }
+document.getElementById("form").addEventListener("submit",(e)=>{ e.preventDefault(); tasks.push({title:document.getElementById("title").value,done:false}); document.getElementById("title").value=""; render(); });
+
+</script>
+</body>
+</html>

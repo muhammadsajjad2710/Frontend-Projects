@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>React Tabs</title>
+  <meta name="generator" content="React">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">React</p>
+    <h1>React Tabs</h1>
+    <p class="lede">Switch panels with React state.</p>
+    <div id="root"></div>
+  </main>
+  
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+const tabs=[{id:"one",label:"Overview",body:"A small tab widget."},{id:"two",label:"Code",body:"Built with React useState."},{id:"three",label:"Next",body:"Try Vue tabs next."}];
+function App(){ const [id,setId]=React.useState("one"); const current=tabs.find(t=>t.id===id);
+  return (<div><div className="row">{tabs.map(t=><button key={t.id} className={t.id===id?"":"secondary"} onClick={()=>setId(t.id)}>{t.label}</button>)}</div><p className="card">{current.body}</p></div>); }
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+</script>
+</body>
+</html>

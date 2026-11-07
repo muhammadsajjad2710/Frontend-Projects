@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz App</title>
+  <meta name="generator" content="Vanilla JS">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Vanilla JS</p>
+    <h1>Quiz App</h1>
+    <p class="lede">Answer multiple-choice questions and see a score.</p>
+    <p id="question"></p><div id="choices" class="row"></div><p id="score" class="status"></p>
+  </main>
+  
+<script>
+
+const qs=[{q:"Which language runs in the browser?",a:["Java","C","JavaScript","Python"],c:2},{q:"What does CSS stand for?",a:["Central Style Sheets","Cascading Style Sheets","Coded Style Syntax","Cool Stylish Sites"],c:1}];
+let i=0, score=0; const qel=document.getElementById("question"); const box=document.getElementById("choices");
+function show(){ if(i>=qs.length){ qel.textContent="Done"; while(box.firstChild) box.removeChild(box.firstChild); document.getElementById("score").textContent="Score "+score+"/"+qs.length; return; }
+  const item=qs[i]; qel.textContent=item.q; while(box.firstChild) box.removeChild(box.firstChild);
+  item.a.forEach((label,idx)=>{ const b=document.createElement("button"); b.textContent=label; b.addEventListener("click",()=>{ if(idx===item.c) score+=1; i+=1; show(); }); box.appendChild(b); }); }
+show();
+
+</script>
+</body>
+</html>

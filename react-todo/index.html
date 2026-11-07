@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>React Todo</title>
+  <meta name="generator" content="React">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">React</p>
+    <h1>React Todo</h1>
+    <p class="lede">A todo list rendered with React 18 from a CDN.</p>
+    <div id="root"></div>
+  </main>
+  
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+function App(){ const [title,setTitle]=React.useState(""); const [tasks,setTasks]=React.useState([]);
+  return (<div><form className="row" onSubmit={e=>{e.preventDefault(); if(!title.trim()) return; setTasks([...tasks,{title,done:false}]); setTitle("");}}><input value={title} onChange={e=>setTitle(e.target.value)} placeholder="Task"/><button type="submit">Add</button></form><ul className="list">{tasks.map((t,i)=><li key={i}><span>{t.done?t.title+" (done)":t.title}</span><button className="secondary" type="button" onClick={()=>setTasks(tasks.map((x,j)=>j===i?{...x,done:!x.done}:x))}>Toggle</button></li>)}</ul></div>); }
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+</script>
+</body>
+</html>

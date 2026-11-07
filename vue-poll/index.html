@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue Poll</title>
+  <meta name="generator" content="Vue">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Vue</p>
+    <h1>Vue Poll</h1>
+    <p class="lede">Vote on a question with Vue.</p>
+    <div id="app"><p>{{ question }}</p><div class="row"><button v-for="c in choices" :key="c.text" @click="c.votes+=1">{{ c.text }} ({{ c.votes }})</button></div></div>
+  </main>
+  
+<script>
+const {createApp,ref}=Vue; createApp({setup(){ return {question:'Which framework first?', choices:ref([{text:'Vue',votes:0},{text:'React',votes:0},{text:'Svelte',votes:0}])}; }}).mount('#app');
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Gallery</title>
+  <meta name="generator" content="Vanilla JS">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Vanilla JS</p>
+    <h1>Image Gallery</h1>
+    <p class="lede">Click a tile to feature it. Tiles are colored placeholders, no downloads.</p>
+    <p id="feature" class="card">Selected: 1</p><div id="grid" class="gallery"></div>
+  </main>
+  
+<script>
+
+const grid=document.getElementById("grid"); const feature=document.getElementById("feature");
+for(let i=1;i<=9;i+=1){ const b=document.createElement("button"); b.textContent=String(i); b.addEventListener("click",()=>{ feature.textContent="Selected: "+i; }); grid.appendChild(b); }
+
+</script>
+</body>
+</html>

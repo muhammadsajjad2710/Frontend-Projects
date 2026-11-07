@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue Recipe Cards</title>
+  <meta name="generator" content="Vue">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Vue</p>
+    <h1>Vue Recipe Cards</h1>
+    <p class="lede">Filter recipe cards with Vue.</p>
+    <div id="app"><input v-model="q" placeholder="Search"><div class="grid"><article class="card" v-for="r in shown" :key="r.title"><h2>{{ r.title }}</h2><p class="meta">{{ r.time }}</p></article></div></div>
+  </main>
+  
+<script>
+const {createApp,ref,computed}=Vue; createApp({setup(){ const q=ref(''); const recipes=[{title:'Chai',time:'10 min'},{title:'Biryani',time:'90 min'},{title:'Salad',time:'15 min'}]; const shown=computed(()=>recipes.filter(r=>r.title.toLowerCase().includes(q.value.toLowerCase()))); return {q,shown}; }}).mount('#app');
+</script>
+</body>
+</html>

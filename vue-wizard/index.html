@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vue Wizard</title>
+  <meta name="generator" content="Vue">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Vue</p>
+    <h1>Vue Wizard</h1>
+    <p class="lede">A three-step form wizard.</p>
+    <div id="app"><p>Step {{ step }} of 3</p><p class="card" v-if="step===1"><input v-model="name" placeholder="Name"></p><p class="card" v-else-if="step===2"><input v-model="email" placeholder="Email"></p><p class="card" v-else>Thanks, {{ name }} ({{ email }})</p><div class="row"><button class="secondary" type="button" @click="step=Math.max(1,step-1)">Back</button><button type="button" @click="step=Math.min(3,step+1)">Next</button></div></div>
+  </main>
+  
+<script>
+const {createApp,ref}=Vue; createApp({setup(){ return {step:ref(1), name:ref(''), email:ref('')}; }}).mount('#app');
+</script>
+</body>
+</html>

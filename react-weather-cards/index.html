@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>React Weather Cards</title>
+  <meta name="generator" content="React">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">React</p>
+    <h1>React Weather Cards</h1>
+    <p class="lede">Mock weather cards with local data, no API key.</p>
+    <div id="root"></div>
+  </main>
+  
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+const cities=[{city:"Karachi",temp:31,sky:"Clear"},{city:"Lahore",temp:28,sky:"Haze"},{city:"Islamabad",temp:24,sky:"Clouds"}];
+function App(){ return (<div className="grid">{cities.map(c=><div key={c.city} className="card"><h2>{c.city}</h2><p>{c.temp}°C</p><p className="meta">{c.sky}</p></div>)}</div>); }
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+</script>
+</body>
+</html>

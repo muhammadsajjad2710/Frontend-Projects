@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Form Validator</title>
+  <meta name="generator" content="Vanilla JS">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Vanilla JS</p>
+    <h1>Form Validator</h1>
+    <p class="lede">Check email and password rules before submit.</p>
+    <form id="form"><input id="email" placeholder="Email"><input id="password" type="password" placeholder="Password (6+ chars)"><button type="submit">Check</button></form><p id="status" class="status"></p>
+  </main>
+  
+<script>
+
+document.getElementById("form").addEventListener("submit",(e)=>{ e.preventDefault();
+  const email=document.getElementById("email").value; const password=document.getElementById("password").value; const s=document.getElementById("status");
+  if(!email.includes("@")||!email.includes(".")) { s.textContent="Enter a valid email"; s.className="status error"; return; }
+  if(password.length<6){ s.textContent="Password must be 6+ characters"; s.className="status error"; return; }
+  s.textContent="Looks good"; s.className="status"; });
+
+</script>
+</body>
+</html>

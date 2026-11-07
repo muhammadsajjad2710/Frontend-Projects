@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calculator</title>
+  <meta name="generator" content="Vanilla JS">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Vanilla JS</p>
+    <h1>Calculator</h1>
+    <p class="lede">A four-function calculator built with HTML, CSS, and JavaScript.</p>
+    <div class="calc"><input id="display" readonly value="0"><button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button><button data-k="/">/</button><button data-k="4">4</button><button data-k="5">5</button><button data-k="6">6</button><button data-k="*">*</button><button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button><button data-k="-">-</button><button data-k="0">0</button><button data-k=".">.</button><button data-k="=">=</button><button data-k="+">+</button><button data-k="C">C</button></div>
+  </main>
+  
+<script>
+
+const display=document.getElementById("display");
+let expr="";
+document.querySelector(".calc").addEventListener("click",(e)=>{
+  const k=e.target.getAttribute("data-k"); if(!k) return;
+  if(k==="C"){expr=""; display.value="0"; return;}
+  if(k==="="){ try{ display.value=String(Function('"use strict";return ('+expr+")")()); expr=display.value; }catch{ display.value="Error"; expr=""; } return; }
+  expr+=k; display.value=expr;
+});
+
+</script>
+</body>
+</html>

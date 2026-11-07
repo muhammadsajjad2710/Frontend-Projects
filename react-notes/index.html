@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>React Notes</title>
+  <meta name="generator" content="React">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">React</p>
+    <h1>React Notes</h1>
+    <p class="lede">Create notes in React state.</p>
+    <div id="root"></div>
+  </main>
+  
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+function App(){ const [title,setTitle]=React.useState(""); const [body,setBody]=React.useState(""); const [notes,setNotes]=React.useState([]);
+  return (<div><form onSubmit={e=>{e.preventDefault(); setNotes([{title,body},...notes]); setTitle(""); setBody("");}}><input value={title} onChange={e=>setTitle(e.target.value)} placeholder="Title" required/><textarea value={body} onChange={e=>setBody(e.target.value)} placeholder="Note" required/><button type="submit">Save</button></form><ul className="list">{notes.map((n,i)=><li key={i}><div><strong>{n.title}</strong><p>{n.body}</p></div></li>)}</ul></div>); }
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+</script>
+</body>
+</html>

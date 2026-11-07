@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>React Cart</title>
+  <meta name="generator" content="React">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">React</p>
+    <h1>React Cart</h1>
+    <p class="lede">Add sample products to a cart and see the total.</p>
+    <div id="root"></div>
+  </main>
+  
+<script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+const catalog=[{id:1,name:"Mug",price:5},{id:2,name:"Notebook",price:8},{id:3,name:"Sticker",price:2}];
+function App(){ const [cart,setCart]=React.useState([]); const total=cart.reduce((s,i)=>s+i.price,0);
+  return (<div><div className="grid">{catalog.map(p=><div key={p.id} className="card"><p>{p.name} ${p.price}</p><button onClick={()=>setCart([...cart,p])}>Add</button></div>)}</div><p className="status">Items {cart.length} — total ${total}</p></div>); }
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+</script>
+</body>
+</html>

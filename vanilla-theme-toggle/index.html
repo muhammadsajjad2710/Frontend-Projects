@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Theme Toggle</title>
+  <meta name="generator" content="Vanilla JS">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Vanilla JS</p>
+    <h1>Theme Toggle</h1>
+    <p class="lede">Switch between light and dark page colors.</p>
+    <button id="toggle">Toggle theme</button><p class="meta">The page stores the choice in localStorage.</p>
+  </main>
+  
+<script>
+
+function apply(theme){ document.documentElement.style.setProperty("--canvas", theme==="dark"?"#0b1f3a":"#f3f6fb"); document.documentElement.style.setProperty("--paper", theme==="dark"?"#16345c":"#fff"); document.documentElement.style.setProperty("--ink", theme==="dark"?"#f3f6fb":"#122033"); localStorage.setItem("theme", theme); }
+apply(localStorage.getItem("theme")||"light");
+document.getElementById("toggle").addEventListener("click",()=>{ apply((localStorage.getItem("theme")==="dark")?"light":"dark"); });
+
+</script>
+</body>
+</html>

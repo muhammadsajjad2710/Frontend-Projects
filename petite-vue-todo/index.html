@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Petite Vue Todo</title>
+  <meta name="generator" content="Petite Vue">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Petite Vue</p>
+    <h1>Petite Vue Todo</h1>
+    <p class="lede">A 5kb Vue subset from a CDN.</p>
+    <div v-scope="{ title:'', tasks:[] }" @vue:mounted><form class="row" @submit.prevent="title.trim() && tasks.push({title, done:false}) && (title='')"><input v-model="title" placeholder="Task"><button>Add</button></form><ul class="list"><li v-for="t in tasks"><span>{{ t.done ? t.title + " (done)" : t.title }}</span><button class="secondary" type="button" @click="t.done=!t.done">Toggle</button></li></ul></div>
+  </main>
+  <script src="https://unpkg.com/petite-vue@0.4.1/dist/petite-vue.iife.js"></script><script>PetiteVue.createApp().mount()</script>
+</body>
+</html>

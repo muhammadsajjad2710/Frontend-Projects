@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pomodoro Timer</title>
+  <meta name="generator" content="Vanilla JS">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrap">
+    <p class="eyebrow">Vanilla JS</p>
+    <h1>Pomodoro Timer</h1>
+    <p class="lede">A 25-minute focus timer with start and reset.</p>
+    <p id="face" class="lede">25:00</p><div class="row"><button id="start">Start</button><button id="reset" class="secondary">Reset</button></div>
+  </main>
+  
+<script>
+
+let left=25*60, t=null; const face=document.getElementById("face");
+function draw(){ const m=String(Math.floor(left/60)).padStart(2,"0"); const s=String(left%60).padStart(2,"0"); face.textContent=m+":"+s; }
+document.getElementById("start").addEventListener("click",()=>{ if(t) return; t=setInterval(()=>{ left=Math.max(0,left-1); draw(); if(left===0){ clearInterval(t); t=null; } },1000); });
+document.getElementById("reset").addEventListener("click",()=>{ clearInterval(t); t=null; left=25*60; draw(); });
+draw();
+
+</script>
+</body>
+</html>
